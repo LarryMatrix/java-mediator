@@ -1,0 +1,33 @@
+{
+  "urn": "urn:uuid:2df9f6d0-beb0-11eb-89d4-21dc8122f62a",
+  "version": "0.1.0",
+  "name": "Sample Java Mediator",
+  "description": "no no no no no no no no no no no no no no no",
+  "endpoints": [
+    {
+      "name": "Sample Java Mediator Route",
+      "host": "localhost",
+      "port": "12000",
+      "path": "/my-mediator",
+      "type": "http"
+    }
+  ],
+  "defaultChannelConfig": [
+    {
+      "name": "Sample Java Mediator",
+      "urlPattern": "^/my-mediator$",
+      "type": "http",
+      "allow": ["samplejavamediator"],
+      "routes": [
+        {
+          "name": "Sample Java Mediator Route",
+          "host": "localhost",
+          "port": "12000",
+          "path": "/my-mediator",
+          "type": "http",
+          "primary": "true"
+        }
+      ]
+    }
+  ]
+}

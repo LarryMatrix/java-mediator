@@ -1,0 +1,102 @@
+{
+  "urn": "urn:uuid:2df9f6d0-beb0-11eb-89d4-21dc8122f62a",
+  "version": "0.1.0",
+  "name": "Sample Java Mediator",
+  "description": "no no no no no no no no no no no no no no no",
+
+
+
+  "defaultChannelConfig": [
+    {
+      "name": "Sample Java Mediator",
+      "urlPattern": "^/my-mediator$",
+      "type": "http",
+      "allow": ["samplejavamediator"],
+      "requestBody": true,
+      "responseBody": true,
+      "autoRetryPeriodMinutes": 60,
+      "autoRetryEnabled": false,
+      "rewriteUrlsConfig": [],
+      "addAutoRewriteRules": true,
+      "rewriteUrls": false,
+      "status": "enabled",
+      "alerts": [],
+      "txRerunAcl": [],
+      "txViewFullAcl": [],
+      "txViewAcl": [],
+      "properties": [],
+      "matchContentTypes": [],
+      "whitelist": [],
+      "routes": [
+        {
+          "name": "Sample Java Mediator Route",
+          "host": "localhost",
+          "port": "12000",
+          "path": "/my-mediator",
+          "type": "http",
+          "primary": "true",
+          "secured": false
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "Sample Java Mediator Route",
+      "host": "localhost",
+      "port": "12000",
+      "path": "/my-mediator",
+      "type": "http",
+      "primary": true
+    }
+  ],
+  "configDefs": [
+    {
+      "param": "hprs",
+      "displayName": "HPRS Credentials",
+      "description": "The Open Authentication that generates access token to access HPRS server",
+      "type": "struct",
+      "template": [
+        {
+          "param": "url",
+          "displayName": "HPRS Host Name",
+          "description": "The base URL (e.g. http://hprs.moh.go.tz/)",
+          "type": "string"
+        },
+        {
+          "param": "token",
+          "displayName": "Token",
+          "description": "Token",
+          "type": "string"
+        },
+        {
+          "param": "username",
+          "displayName": "Username",
+          "description": "Username required to generate access token",
+          "type": "string"
+        },
+        {
+          "param": "password",
+          "displayName": "Password",
+          "description": "Password required to generate access token",
+          "type": "password"
+        },
+        {
+          "param": "full_name",
+          "displayName": "Full Name",
+          "description": "User Full Name",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "hprs": {
+      "url": "http://hprs.moh.go.tz",
+      "token": "aWxfbWVkaWF0b3I6QE1lZGlhdG9yU291cmNlMTIz",
+      "username": "massanjal4",
+      "password": "PhoneField",
+      "full_name": "Lawrance Massanja"
+    }
+  }
+}
