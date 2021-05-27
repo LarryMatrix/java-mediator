@@ -51,7 +51,7 @@ public class DefaultOrchestratorTest {
                     null,
                     null,
                     "/my-mediator",
-                    "test message",
+                    "{}",
                     Collections.<String, String>singletonMap("Content-Type", "text/plain"),
                     Collections.<Pair<String, String>>emptyList()
             );

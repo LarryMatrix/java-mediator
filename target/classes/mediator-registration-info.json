@@ -45,6 +45,14 @@
       "path": "/my-mediator",
       "type": "http",
       "primary": true
+    },
+    {
+      "name": "My HPRS Endpoint Route",
+      "host": "localhost",
+      "port": "12000",
+      "path": "/hprs-mediator",
+      "type": "http",
+      "primary": false
     }
   ],
   "configDefs": [
@@ -55,45 +63,52 @@
       "type": "struct",
       "template": [
         {
-          "param": "url",
-          "displayName": "HPRS Host Name",
-          "description": "The base URL (e.g. http://hprs.moh.go.tz/)",
+          "param": "scheme",
+          "displayName": "HPRS Scheme Type",
+          "description": "The base scheme type (e.g. http://)",
           "type": "string"
         },
         {
-          "param": "token",
-          "displayName": "Token",
-          "description": "Token",
+          "param": "host",
+          "displayName": "HPRS Host Name",
+          "description": "The base Host (e.g. hprs.moh.go.tz)",
+          "type": "string"
+        },
+        {
+          "param": "port",
+          "displayName": "HPRS Port Number",
+          "description": "The base Port number (e.g. 80)",
+          "type": "string"
+        },
+        {
+          "param": "path",
+          "displayName": "HPRS Path Name",
+          "description": "The base path (e.g. hprs/api/v1/facility/create/)",
           "type": "string"
         },
         {
           "param": "username",
           "displayName": "Username",
-          "description": "Username required to generate access token",
+          "description": "Username required to access the system",
           "type": "string"
         },
         {
           "param": "password",
           "displayName": "Password",
-          "description": "Password required to generate access token",
+          "description": "Password required to access the system",
           "type": "password"
-        },
-        {
-          "param": "full_name",
-          "displayName": "Full Name",
-          "description": "User Full Name",
-          "type": "string"
         }
       ]
     }
   ],
   "config": {
     "hprs": {
-      "url": "http://hprs.moh.go.tz",
-      "token": "aWxfbWVkaWF0b3I6QE1lZGlhdG9yU291cmNlMTIz",
-      "username": "massanjal4",
-      "password": "PhoneField",
-      "full_name": "Lawrance Massanja"
+      "scheme": "http://",
+      "host": "4fb476737108.ngrok.io",
+      "port": "80",
+      "path": "/hprs/api/v1/facility/create/",
+      "username": "him@moh.go.tz",
+      "password": "PhoneField"
     }
   }
 }

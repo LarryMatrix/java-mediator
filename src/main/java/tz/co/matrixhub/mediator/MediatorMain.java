@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.openhim.mediator.engine.*;
 import tz.co.matrixhub.mediator.classes.HprsOchestrator;
+import tz.co.matrixhub.mediator.classes.SourceMessage;
 
 import java.io.File;
 import java.io.IOException;
