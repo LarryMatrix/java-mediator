@@ -13,7 +13,6 @@ public class DefaultOrchestrator extends UntypedActor {
 
     private final MediatorConfig config;
 
-
     public DefaultOrchestrator(MediatorConfig config) {
         this.config = config;
     }
@@ -21,8 +20,13 @@ public class DefaultOrchestrator extends UntypedActor {
     @Override
     public void onReceive(Object msg) throws Exception {
         if (msg instanceof MediatorHTTPRequest) {
-            FinishRequest finishRequest = new FinishRequest("A message from my new mediator!", "text/plain", HttpStatus.SC_OK);
-            ((MediatorHTTPRequest) msg).getRequestHandler().tell(finishRequest, getSelf());
+
+            FinishRequest finishRequest = new FinishRequest(
+                    ((MediatorHTTPRequest) msg).getBody(),
+                    "application/json",
+                    HttpStatus.SC_OK
+            );
+            ((MediatorHTTPRequest) msg).getRequestHandler().tell(finishRequest, getSender());
         } else {
             unhandled(msg);
         }

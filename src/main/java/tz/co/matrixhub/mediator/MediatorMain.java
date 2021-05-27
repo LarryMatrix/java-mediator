@@ -6,6 +6,8 @@ import akka.event.LoggingAdapter;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.openhim.mediator.engine.*;
+import tz.co.matrixhub.mediator.classes.HprsOchestrator;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +21,7 @@ public class MediatorMain {
         //TODO Configure routes here
         //...
         routingTable.addRoute("/my-mediator", DefaultOrchestrator.class);
+        routingTable.addRoute("/hprs-mediator", HprsOchestrator.class);
 
         return routingTable;
     }
@@ -91,6 +94,7 @@ public class MediatorMain {
         }
 
         MediatorConfig config = loadConfig(configPath);
+        config.setSSLContext(new MediatorConfig.SSLContext(true));
         final MediatorServer server = new MediatorServer(system, config);
 
         //setup shutdown hook

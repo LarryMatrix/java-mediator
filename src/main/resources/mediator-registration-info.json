@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "name": "Sample Java Mediator",
   "description": "no no no no no no no no no no no no no no no",
-
-
-
   "defaultChannelConfig": [
     {
       "name": "Sample Java Mediator",
