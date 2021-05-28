@@ -6,8 +6,11 @@ import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import com.google.gson.Gson;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpStatus;
 import org.json.JSONObject;
 import org.openhim.mediator.engine.MediatorConfig;
+import org.openhim.mediator.engine.messages.FinishRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPResponse;
 
@@ -34,6 +37,27 @@ public class DefaultOrchestrator extends UntypedActor {
                     body,
                     SourceMessage.class
             );
+
+            if (!StringUtils.isBlank(sourceMessage.getLatitude()) || !StringUtils.isBlank(sourceMessage.getLongitude())) {
+
+                try {
+                    double latitude = Double.parseDouble(sourceMessage.getLatitude());
+                    double longitude = Double.parseDouble(sourceMessage.getLongitude());
+
+                } catch (Exception e){
+                    System.out.println("Invalid Longitude/Latitude");
+                    FinishRequest finishRequest = new FinishRequest(
+                            "Invalid Longitude/Latitude",
+                            "plain/text",
+                            HttpStatus.SC_BAD_REQUEST);
+
+                     ((MediatorHTTPRequest) msg)
+                             .getRequestHandler().tell(finishRequest,
+                     getSelf());
+                    return;
+                }
+
+            }
 
             HashMap<String, String> header = new HashMap<>();
             header.put("Content-Type", "application/json");

@@ -1,0 +1,124 @@
+{
+  "urn": "urn:uuid:2df9f6d0-beb0-11eb-89d4-21dc8122f62a",
+  "version": "0.1.0",
+  "name": "Sample Java Mediator",
+  "description": "no no no no no no no no no no no no no no no",
+  "defaultChannelConfig": [
+    {
+      "name": "Sample Java Mediator",
+      "urlPattern": "^/my-mediator$",
+      "type": "http",
+      "allow": ["samplejavamediator"],
+      "requestBody": true,
+      "responseBody": true,
+      "autoRetryPeriodMinutes": 60,
+      "autoRetryEnabled": false,
+      "rewriteUrlsConfig": [],
+      "addAutoRewriteRules": true,
+      "rewriteUrls": false,
+      "status": "enabled",
+      "alerts": [],
+      "txRerunAcl": [],
+      "txViewFullAcl": [],
+      "txViewAcl": [],
+      "properties": [],
+      "matchContentTypes": [],
+      "whitelist": [],
+      "routes": [
+        {
+          "name": "Sample Java Mediator Route",
+          "host": "localhost",
+          "port": "12000",
+          "path": "/my-mediator",
+          "type": "http",
+          "primary": "true",
+          "secured": false
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "Sample Java Mediator Route",
+      "host": "localhost",
+      "port": "12000",
+      "path": "/my-mediator",
+      "type": "http",
+      "primary": true
+    },
+    {
+      "name": "My HPRS Endpoint Route",
+      "host": "localhost",
+      "port": "12000",
+      "path": "/hprs-mediator",
+      "type": "http",
+      "primary": false
+    }
+  ],
+  "configDefs": [
+    {
+      "param": "hprs",
+      "displayName": "HPRS Credentials",
+      "description": "The Open Authentication that generates access token to access HPRS server",
+      "type": "struct",
+      "template": [
+        {
+          "param": "scheme",
+          "displayName": "HPRS Scheme Type",
+          "description": "The base scheme type (e.g. http://)",
+          "type": "option",
+          "values": ["http://", "https://"]
+        },
+        {
+          "param": "host",
+          "displayName": "HPRS Host Name",
+          "description": "The base Host (e.g. hprs.moh.go.tz)",
+          "type": "string"
+        },
+        {
+          "param": "port",
+          "displayName": "HPRS Port Number",
+          "description": "The base Port number (e.g. 80)",
+          "type": "string"
+        },
+        {
+          "param": "path",
+          "displayName": "HPRS Path Name",
+          "description": "The base path (e.g. hprs/api/v1/facility/create/)",
+          "type": "string"
+        },
+        {
+          "param": "username",
+          "displayName": "Username",
+          "description": "Username required to access the system",
+          "type": "string"
+        },
+        {
+          "param": "password",
+          "displayName": "Password",
+          "description": "Password required to access the system",
+          "type": "password"
+        },
+        {
+          "param": "headers",
+          "displayName": "HPRS HTTP Headers",
+          "description": "The base HTTP Headers (e.g. Content-Type: application/json)",
+          "type": "map"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "hprs": {
+      "scheme": "http://",
+      "host": "4fb476737108.ngrok.io",
+      "port": "80",
+      "path": "/hprs/api/v1/facility/create/",
+      "username": "him@moh.go.tz",
+      "password": "PhoneField",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
