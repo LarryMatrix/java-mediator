@@ -66,7 +66,8 @@
           "param": "scheme",
           "displayName": "HPRS Scheme Type",
           "description": "The base scheme type (e.g. http://)",
-          "type": "string"
+          "type": "option",
+          "values": ["http://", "https://"]
         },
         {
           "param": "host",
@@ -97,6 +98,12 @@
           "displayName": "Password",
           "description": "Password required to access the system",
           "type": "password"
+        },
+        {
+          "param": "headers",
+          "displayName": "HPRS HTTP Headers",
+          "description": "The base HTTP Headers (e.g. Content-Type: application/json)",
+          "type": "map"
         }
       ]
     }
@@ -108,7 +115,10 @@
       "port": "80",
       "path": "/hprs/api/v1/facility/create/",
       "username": "him@moh.go.tz",
-      "password": "PhoneField"
+      "password": "PhoneField",
+      "headers": {
+        "Content-Type": "application/json"
+      }
     }
   }
 }
