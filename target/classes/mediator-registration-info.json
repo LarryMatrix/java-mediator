@@ -117,7 +117,8 @@
       "username": "him@moh.go.tz",
       "password": "PhoneField",
       "headers": {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       }
     }
   }
