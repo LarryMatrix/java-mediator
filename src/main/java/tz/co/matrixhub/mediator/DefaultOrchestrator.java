@@ -6,13 +6,10 @@ import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import com.google.gson.Gson;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.http.HttpStatus;
 import org.json.JSONObject;
 import org.openhim.mediator.engine.MediatorConfig;
-import org.openhim.mediator.engine.messages.FinishRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPResponse;
-import tz.co.matrixhub.mediator.classes.SourceMessage;
 
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;

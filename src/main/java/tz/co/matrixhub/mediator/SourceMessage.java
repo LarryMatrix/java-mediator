@@ -1,4 +1,4 @@
-package tz.co.matrixhub.mediator.classes;
+package tz.co.matrixhub.mediator;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
